@@ -16,7 +16,13 @@ public:
     explicit Stopwatch(QWidget *parent = 0);
     ~Stopwatch();
 
+public slots:
+    void on_pushButtonStart_clicked();
+
 private:
+    void startTimer();
+    void stopTimer();
+
     Ui::Stopwatch *ui{};
     bool paused{true};
     QDateTime start{QDateTime::currentDateTime()};

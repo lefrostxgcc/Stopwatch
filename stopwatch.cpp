@@ -17,3 +17,18 @@ Stopwatch::~Stopwatch()
 {
     delete ui;
 }
+
+void Stopwatch::on_pushButtonStart_clicked()
+{
+    paused ? startTimer() : stopTimer();
+}
+
+void Stopwatch::startTimer()
+{
+
+}
+
+void Stopwatch::stopTimer()
+{
+
+}
