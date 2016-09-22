@@ -16,6 +16,7 @@ Stopwatch::Stopwatch(QWidget *parent) :
     ui->grid->setColumnWidth(3, 100);
 
     timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &Stopwatch::timerTimeout);
     timer->setInterval(950);
 }
 
@@ -27,6 +28,16 @@ Stopwatch::~Stopwatch()
 void Stopwatch::on_pushButtonStart_clicked()
 {
     paused ? startTimer() : stopTimer();
+}
+
+void Stopwatch::timerTimeout()
+{
+    if (paused)
+        return;
+
+    QTime elapsedTime = QTime(0, 0).addMSecs(start.msecsTo(QDateTime::currentDateTime()));
+
+    ui->labelTime->setText(elapsedTime.toString("hh:mm:ss"));
 }
 
 void Stopwatch::closeEvent(QCloseEvent * /*event*/)

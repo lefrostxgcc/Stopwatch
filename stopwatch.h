@@ -19,6 +19,7 @@ public:
 
 public slots:
     void on_pushButtonStart_clicked();
+    void timerTimeout();
 
 protected:
     void closeEvent(QCloseEvent *event) override;
