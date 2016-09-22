@@ -1,5 +1,6 @@
 #include "stopwatch.h"
 #include "ui_stopwatch.h"
+#include <QTableWidgetItem>
 
 Stopwatch::Stopwatch(QWidget *parent) :
     QMainWindow(parent),
@@ -51,7 +52,16 @@ void Stopwatch::stopTimer()
 
 void Stopwatch::addNoteToGrid()
 {
+    QTableWidgetItem *coStart = new QTableWidgetItem(start.toString("yyyy-MM-dd HH:mm"));
+    QTableWidgetItem *coTimer = new QTableWidgetItem(ui->labelTime->text());
+    QTableWidgetItem *coNotes = new QTableWidgetItem(ui->lineEditNotes->text());
 
+    auto row = ui->grid->rowCount();
+    ui->grid->setRowCount(row + 1);
+
+    ui->grid->setItem(row, 1, coStart);
+    ui->grid->setItem(row, 2, coNotes);
+    ui->grid->setItem(row, 3, coTimer);
 }
 
 void Stopwatch::saveNoteToFile()
