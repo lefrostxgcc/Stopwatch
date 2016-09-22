@@ -38,5 +38,23 @@ void Stopwatch::startTimer()
 
 void Stopwatch::stopTimer()
 {
+    paused = true;
+    timer->stop();
+    addNoteToGrid();
+    saveNoteToFile();
+    ui->labelTime->setText("00:00:00");
+    ui->lineEditNotes->setEnabled(true);
+    ui->lineEditNotes->clear();
+    ui->pushButtonStart->setText("Start");
+    ui->lineEditNotes->setFocus();
+}
+
+void Stopwatch::addNoteToGrid()
+{
+
+}
+
+void Stopwatch::saveNoteToFile()
+{
 
 }

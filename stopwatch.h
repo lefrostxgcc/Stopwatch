@@ -23,6 +23,8 @@ public slots:
 private:
     void startTimer();
     void stopTimer();
+    void addNoteToGrid();
+    void saveNoteToFile();
 
     Ui::Stopwatch *ui{};
     bool paused{true};
