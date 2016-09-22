@@ -24,7 +24,7 @@
     <normaloff>:/stopwatch.png</normaloff>:/stopwatch.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="labelTime">
     <property name="geometry">
      <rect>
       <x>80</x>
