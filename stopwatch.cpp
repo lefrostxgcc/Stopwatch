@@ -34,7 +34,8 @@ void Stopwatch::timerTimeout()
     if (paused)
         return;
 
-    QTime elapsedTime = QTime(0, 0).addMSecs(start.msecsTo(QDateTime::currentDateTime()));
+    QDateTime midnight { start.date(), QTime{0, 0} };
+    QDateTime elapsedTime {midnight.addMSecs(start.msecsTo(QDateTime::currentDateTime())) };
 
     ui->labelTime->setText(elapsedTime.toString("hh:mm:ss"));
 }
