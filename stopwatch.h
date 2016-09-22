@@ -2,6 +2,7 @@
 #define STOPWATCH_H
 
 #include <QMainWindow>
+#include <QDateTime>
 
 namespace Ui {
 class Stopwatch;
@@ -16,7 +17,9 @@ public:
     ~Stopwatch();
 
 private:
-    Ui::Stopwatch *ui;
+    Ui::Stopwatch *ui{};
+    bool paused{true};
+    QDateTime start{QDateTime::currentDateTime()};
 };
 
 #endif // STOPWATCH_H
