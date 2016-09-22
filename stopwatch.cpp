@@ -10,10 +10,9 @@ Stopwatch::Stopwatch(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->grid->setColumnWidth(0, 25);
-    ui->grid->setColumnWidth(1, 100);
-    ui->grid->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
-    ui->grid->setColumnWidth(3, 100);
+    ui->grid->setColumnWidth(0, 120);
+    ui->grid->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    ui->grid->setColumnWidth(2, 70);
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Stopwatch::timerTimeout);
@@ -78,9 +77,9 @@ void Stopwatch::addNoteToGrid()
     auto row = ui->grid->rowCount();
     ui->grid->setRowCount(row + 1);
 
-    ui->grid->setItem(row, 1, coStart);
-    ui->grid->setItem(row, 2, coNotes);
-    ui->grid->setItem(row, 3, coTimer);
+    ui->grid->setItem(row, 0, coStart);
+    ui->grid->setItem(row, 1, coNotes);
+    ui->grid->setItem(row, 2, coTimer);
 }
 
 void Stopwatch::saveNoteToFile()
