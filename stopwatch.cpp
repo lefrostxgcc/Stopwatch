@@ -29,6 +29,12 @@ void Stopwatch::on_pushButtonStart_clicked()
     paused ? startTimer() : stopTimer();
 }
 
+void Stopwatch::closeEvent(QCloseEvent * /*event*/)
+{
+    if (!paused)
+        stopTimer();
+}
+
 void Stopwatch::startTimer()
 {
     paused = false;

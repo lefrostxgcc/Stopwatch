@@ -20,6 +20,9 @@ public:
 public slots:
     void on_pushButtonStart_clicked();
 
+protected:
+    void closeEvent(QCloseEvent *event) override;
+
 private:
     void startTimer();
     void stopTimer();
