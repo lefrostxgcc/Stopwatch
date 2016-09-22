@@ -11,6 +11,9 @@ Stopwatch::Stopwatch(QWidget *parent) :
     ui->grid->setColumnWidth(1, 100);
     ui->grid->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
     ui->grid->setColumnWidth(3, 100);
+
+    timer = new QTimer(this);
+    timer->setInterval(950);
 }
 
 Stopwatch::~Stopwatch()
@@ -25,7 +28,12 @@ void Stopwatch::on_pushButtonStart_clicked()
 
 void Stopwatch::startTimer()
 {
-
+    paused = false;
+    ui->pushButtonStart->setText("Stop");
+    ui->lineEditNotes->setEnabled(false);
+    start = QDateTime::currentDateTime();
+    ui->labelTime->setText("00:00:00");
+    timer->start();
 }
 
 void Stopwatch::stopTimer()
