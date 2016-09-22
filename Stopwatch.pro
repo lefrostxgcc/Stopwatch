@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += stopwatch.h
 
 FORMS    += stopwatch.ui
+
+RESOURCES += \
+    resource.qrc
